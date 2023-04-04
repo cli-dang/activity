@@ -1,4 +1,4 @@
 # clean build
-run clean_build
+npm run build:clean
 npm install
 npm run build
