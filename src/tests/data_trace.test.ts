@@ -1,6 +1,6 @@
 import * as tttt from 'trythistrythat'
 import assert from 'node:assert/strict'
-import { trace, trace_options } from '../lib/activity/trace'
+import { trace, trace_options } from '../lib/activity/trace.js'
 
 export default async ( id ) => {
 

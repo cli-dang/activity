@@ -3,7 +3,6 @@ import * as tttt from 'trythistrythat'
 import { spawn } from 'node:child_process'
 import { URL } from 'url'
 
-// @ts-ignore
 const __dirname = new URL( '.', import.meta.url ).pathname
 
 export default async function ( id ){

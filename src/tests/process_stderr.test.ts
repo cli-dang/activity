@@ -1,7 +1,7 @@
 import * as assert from 'node:assert/strict'
 import * as tttt from 'trythistrythat'
 import { AssertionError } from 'assert'
-import { stderr } from '../lib/activity/stderr'
+import { stderr } from '../lib/activity/stderr.js'
 
 export default async ( id ) => {
 

@@ -1,6 +1,6 @@
-import { default as Generator } from './functions/generator'
+import { default as Generator } from './functions/generator.js'
 import { OftypesError } from 'oftypes'
-import { stderr } from './stderr'
+import { stderr } from './stderr.js'
 
 export async function exit( message: MessageArgument, error_type = new Error( `${process.title} ♠ error - internal` ), exit_code = 1, process_exit = true, mute = false )
   :Promise<OftypesError|string> {

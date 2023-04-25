@@ -1,4 +1,4 @@
-import { default as Generator } from './functions/generator'
+import { default as Generator } from './functions/generator.js'
 import { inspect } from 'util'
 import { OftypesError } from 'oftypes'
 

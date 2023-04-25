@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { exit } from '../../lib/activity/exit'
+import { exit } from '../../lib/activity/exit.js'
 
 process.on( 'message', async id => {
   process.send( id )

@@ -1,4 +1,4 @@
-import { default as Generator } from './functions/generator'
+import { default as Generator } from './functions/generator.js'
 import { OftypesError } from 'oftypes'
 
 export async function stderr( message:MessageArgument, mute = false ):Promise<Buffer|string|OftypesError>{

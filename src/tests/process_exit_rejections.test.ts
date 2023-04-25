@@ -1,6 +1,6 @@
 import * as tttt from 'trythistrythat'
 import { AssertionError } from 'assert'
-import { exit } from '../lib/activity/exit'
+import { exit } from '../lib/activity/exit.js'
 
 export default async ( id ) => {
 

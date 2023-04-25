@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { trace } from '../../lib/activity/trace'
+import { trace } from '../../lib/activity/trace.js'
 
 process.on( 'message', async id => {
   process.send( id )

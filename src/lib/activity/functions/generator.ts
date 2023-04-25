@@ -1,6 +1,6 @@
 import { Dang } from '@cli-dang/decors'
 import { error_, number_, oftype_, OftypesError } from 'oftypes'
-import { stderr_exit_text, stderr_trace_text } from './text/code'
+import { stderr_exit_text, stderr_trace_text } from './text/code.js'
 
 export default class activity_generator{
 
