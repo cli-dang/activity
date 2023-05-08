@@ -1,29 +1,29 @@
-import { default as Generator } from './functions/generator.js'
 import { OftypesError } from 'oftypes'
+import { default as Generator } from './functions/generator.js'
 
-export async function stderr( message:MessageArgument, mute = false ):Promise<Buffer|string|OftypesError>{
+export async function stderr( message: Activity.MessageArgument, mute: boolean = false ): Promise<Buffer | string | OftypesError> {
 
-  const generator = new Generator()
-  const errors:boolean[] = []
+  const generator: Generator = new Generator( message, 'stderr', 'message' )
+  const errors: boolean[] = []
 
-  let string_buffer: unknown
-  for await ( const check of generator.type_check( message ) )
+  let string_buffer: null | Error
+  for await ( const check of generator.type_check() )
     string_buffer = check
 
-  if( string_buffer instanceof Error )
+  if ( string_buffer instanceof Error )
     errors.push( true )
 
-  let boolean: unknown
-  for await ( const check of generator.boolean( mute, 'stderr' ) )
+  let boolean: null | Error
+  for await ( const check of generator.boolean( mute ) )
     boolean = check
 
-  if( boolean instanceof Error )
+  if ( boolean instanceof Error )
     errors.push( true )
 
-  return new Promise( ( resolve, reject ) => {
+  return new Promise( ( resolve, reject ): void => {
 
-    if( errors.length > 0 ) reject( [ string_buffer, boolean ].join( '\n' ) )
-    else if( ! mute )
+    if ( errors.length > 0 ) reject( [ string_buffer, boolean ].join( '\n' ) )
+    else if ( !mute )
       process.stderr.write( message )
     resolve( message )
 
