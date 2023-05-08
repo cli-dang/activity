@@ -9,8 +9,7 @@ parserOptions:
   ecmaVersion: latest
   sourceType: module
   project: true
-ignorePatterns:
-  - '*.js'
+ignorePatterns: ['*.js', 'types']
 plugins:
   - '@typescript-eslint'
 rules:
