@@ -1,6 +1,6 @@
 {
   "name": "@cli-dang/activity",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "license": "Apache-2.0",
   "description": "Module activity wraps and extends [ process.exit, process.stderr.write, console.trace&node:util/inspect ]. ESModule",
   "type": "module",
@@ -22,14 +22,12 @@
     "access": "public"
   },
   "scripts": {
-    "prepublishOnly": "./shell_script/prePublish.sh",
-    "babel-watch": "npx babel --extensions \".ts\" --out-dir ./ src --watch",
-    "build": "./shell_script/build.sh",
-    "build:clean": "./shell_script/clean_build.sh",
-    "build:fix-chmod": "./shell_script/fix-chmod.sh",
+    "prepublishOnly": "shell-script/prePublish.sh",
+    "build": "shell-script/build.sh",
+    "build:clean": "shell-script/clean_build.sh",
+    "build:fix-chmod": "shell-script/fix-chmod.sh",
     "lint": "npx eslint . --ext .ts --ext .js",
     "lint-fix": "npx eslint . --fix --ext .ts --ext .js",
-    "lint-watch": "npx esw --watch --fix --watch-delay=2",
     "tsc-watch": "npx tsc --watch",
     "test": "npx 4t unit",
     "t8": "npx t8 --c8='src:./src|html:|no-questions:|no-print:|all:' unit"
@@ -39,10 +37,10 @@
     "oftypes": "4.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.16.0",
-    "@typescript-eslint/eslint-plugin": "^5.59.1",
-    "@typescript-eslint/parser": "^5.59.1",
-    "eslint": "^8.39.0",
+    "@types/node": "^20.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint": "^8.40.0",
     "trythistrythat": "3.0.9",
     "typescript": "^5.0.4"
   },
@@ -65,6 +63,6 @@
   },
   "bugs": {
     "email": "simonedelpopolo@outlook.com",
-    "url": "https://github.com/cli-dang/activityissues"
+    "url": "https://github.com/cli-dang/activity/issues"
   }
 }
