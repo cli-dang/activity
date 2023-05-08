@@ -22,10 +22,10 @@
     "access": "public"
   },
   "scripts": {
-    "prepublishOnly": "shell-script/prePublish.sh",
-    "build": "shell-script/build.sh",
-    "build:clean": "shell-script/clean_build.sh",
-    "build:fix-chmod": "shell-script/fix-chmod.sh",
+    "prepublishOnly": "shell_script/prePublish.sh",
+    "build": "shell_script/build.sh",
+    "build:clean": "shell_script/clean_build.sh",
+    "build:fix-chmod": "shell_script/fix-chmod.sh",
     "lint": "npx eslint . --ext .ts --ext .js",
     "lint-fix": "npx eslint . --fix --ext .ts --ext .js",
     "tsc-watch": "npx tsc --watch",
