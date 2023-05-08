@@ -1,8 +1,8 @@
-import { default as Generator } from './functions/generator.js'
-import { inspect } from 'util'
 import { OftypesError } from 'oftypes'
+import { inspect } from 'util'
+import { default as Generator } from './functions/generator.js'
 
-export const trace_options: TraceOptions = {
+export const trace_options: Activity.TraceOptions = {
   mute: false,
   colors: true,
   depth: Infinity,
@@ -25,26 +25,26 @@ export const trace_options: TraceOptions = {
  * } )
  *
  */
-export async function trace ( ...data:[unknown]  ):Promise<null|string|OftypesError>{
+export async function trace( ...data: [ unknown ] ): Promise<string | OftypesError> {
 
-  const generator = new Generator()
+  const generator: Generator = new Generator( data, 'trace', 'data' )
 
-  let type:unknown
-  for await ( const check of generator.boolean( trace_options.mute, 'trace' ) )
+  let type: null | Error
+  for await ( const check of generator.boolean( trace_options.mute ) )
     type = check
 
-  const error = type instanceof Error
-  const inspected = inspect( data[ 0 ], trace_options )
+  const error: boolean = type instanceof Error
+  const inspected: string = inspect( data[ 0 ], trace_options )
 
-  if( error )
+  if ( error )
     trace_options.mute = false
 
-  if( ! trace_options.mute && ! error )
+  if ( !trace_options.mute && !error )
     console.trace( inspected )
 
-  return new Promise( ( resolve, reject ) => {
+  return new Promise( ( resolve, reject ): void => {
 
-    if( type instanceof Error ) reject( type )
+    if ( type instanceof Error ) reject( type )
     resolve( inspected )
   } )
 }
